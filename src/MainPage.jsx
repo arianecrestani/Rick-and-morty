@@ -1,7 +1,7 @@
 import React from "react";
-import { useEffect, useState } from "react"
-
-
+import { useEffect, useState } from "react";
+import Grid from "@mui/material/Grid";
+import Box from "@mui/material/Box";
 
 export default function MainPage() {
   const [RickMortyDate, setRickMortyDate] = useState();
@@ -9,7 +9,7 @@ export default function MainPage() {
   useEffect(() => {
     const getApiRickData = async () => {
       const response = await fetch(
-        "https://rickandmortyapi.com/api/character/?=20"
+        "https://rickandmortyapi.com/api/character/?page=1"
       );
       const data = await response.json();
       setRickMortyDate(data.results);
@@ -20,10 +20,21 @@ export default function MainPage() {
 
   return (
     <div>
-
-      <div>
-        {RickMortyDate && RickMortyDate.map(({ name }) => <div>{name}</div>)}
-      </div>
+    <Box sx={{ flexGrow: 2 }}>
+      <Grid
+        container
+        spacing={{ sm: 2, sm: 5, md: 8 }}
+        columns={{ sm: 8, md: 12 }}
+      >
+        {RickMortyDate &&
+          RickMortyDate.map(({ name, image }, index) => (
+            <Grid xs={2} sm={4} md={4} key={index}>
+              <div>{name}</div>
+              <img src={image} />
+            </Grid>
+          ))}
+      </Grid>
+    </Box>
     </div>
   );
 }
