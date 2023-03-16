@@ -4,11 +4,14 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import { CharacterDetail } from "./CharacterDetail";
 import Searchbar from "./Searchbar";
+import Stack from "@mui/material/Stack";
+import Pagination from "@mui/material/Pagination";
 
 export default function MainPage() {
   const [characterData, setCharacterData] = useState([]);
   const [openCart, setOpenCart] = useState({ open: false, character: {} });
   const [searchValue, setSearchValue] = useState("");
+  const [pagination, setPagination] = useState(1);
 
   const onSearchChange = (event) => {
     setSearchValue(event.target.value);
@@ -20,16 +23,21 @@ export default function MainPage() {
   const handleClose = () => {
     setOpenCart({ open: false, character: {} });
   };
+  const getApiRickData = async (page) => {
+    const response = await fetch(
+      `https://rickandmortyapi.com/api/character/?page=${page}`
+    );
+    const data = await response.json();
+    setCharacterData(data.results);
+    console.log(data.results);
+  };
+  const paginationStatus = (event, value) => {
+    console.log(value);
+    setPagination(value);
+    getApiRickData(value);
+  };
 
   useEffect(() => {
-    const getApiRickData = async () => {
-      const response = await fetch(
-        "https://rickandmortyapi.com/api/character/?page=1"
-      );
-      const data = await response.json();
-      setCharacterData(data.results);
-      console.log(data.results);
-    };
     getApiRickData();
   }, []);
 
@@ -40,7 +48,6 @@ export default function MainPage() {
   return (
     <>
       <Searchbar onChange={onSearchChange} />
-
       <CharacterDetail
         open={openCart.open}
         onClose={handleClose}
@@ -56,6 +63,14 @@ export default function MainPage() {
             ))}
         </Grid>
       </Box>
+      <Stack>
+        <Pagination
+          page={pagination}
+          onChange={paginationStatus}
+          count={3}
+          color="primary"
+        />
+      </Stack>
     </>
   );
 }
