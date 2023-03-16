@@ -1,5 +1,5 @@
 import "./App.css";
-import MainPage from "./Cards";
+import MainPage from "./Components/Cards";
 function App() {
   return (
     <div className="App">
