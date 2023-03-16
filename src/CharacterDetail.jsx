@@ -3,7 +3,7 @@ import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 
-export const RickDetails = ({ open, onClose }) => {
+export const CharacterDetail = ({ open, onClose, character }) => {
   const style = {
     position: "absolute",
     top: "50%",
@@ -26,10 +26,10 @@ export const RickDetails = ({ open, onClose }) => {
       >
         <Box sx={style}>
           <Typography id="modal-modal-title" variant="h6" component="h2">
+            <div>{character.name}</div>
+            <div>{character.status}</div>
           </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-            Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-          </Typography>
+          <Typography d="modal-modal-description" sx={{ mt: 2 }}></Typography>
         </Box>
       </Modal>
     </>
