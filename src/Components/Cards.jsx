@@ -3,11 +3,10 @@ import { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
 import { CharacterDetail } from "./CharacterDetail";
 import Searchbar from "./Searchbar";
-import Stack from "@mui/material/Stack";
-import Pagination from "@mui/material/Pagination";
 import { Container } from "@mui/system";
+import Paginate from './Paginate'
 
-export default function MainPage() {
+export default function Cards() {
   const [characterData, setCharacterData] = useState([]);
   const [openCart, setOpenCart] = useState({ open: false, character: {} });
   const [searchValue, setSearchValue] = useState("");
@@ -63,14 +62,7 @@ export default function MainPage() {
             ))}
         </Grid>
       </Container>
-      <Stack sx={{ padding: "3rem", alignItems: "center" }}>
-        <Pagination
-          page={pagination}
-          onChange={paginationStatus}
-          count={3}
-          color="primary"
-        />
-      </Stack>
+      <Paginate onChange={paginationStatus} page={pagination} count={3} />
     </>
   );
 }
