@@ -1,9 +1,9 @@
 import "./App.css";
-import MainPage from "./Components/Cards";
+import Cards from "./Components/Cards";
 function App() {
   return (
     <div className="App">
-      <MainPage/>
+      <Cards/>
     </div>
   );
 }

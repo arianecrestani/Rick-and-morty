@@ -1,11 +1,11 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
 import { CharacterDetail } from "./CharacterDetail";
 import Searchbar from "./Searchbar";
 import Stack from "@mui/material/Stack";
 import Pagination from "@mui/material/Pagination";
+import { Container } from "@mui/system";
 
 export default function MainPage() {
   const [characterData, setCharacterData] = useState([]);
@@ -32,7 +32,7 @@ export default function MainPage() {
     console.log(data.results);
   };
   const paginationStatus = (event, value) => {
-    console.log(value);
+    // console.log(value);
     setPagination(value);
     getApiRickData(value);
   };
@@ -53,8 +53,8 @@ export default function MainPage() {
         onClose={handleClose}
         character={openCart.character}
       />
-      <Box spacing={12}>
-        <Grid container spacing={3} columns={3}>
+      <Container spacing={2}>
+        <Grid container sx={{ gap: "3rem", justifyContent: "center" }}>
           {characterData &&
             characterData.filter(filterSearch).map((item, index) => (
               <Grid key={index}>
@@ -62,8 +62,8 @@ export default function MainPage() {
               </Grid>
             ))}
         </Grid>
-      </Box>
-      <Stack>
+      </Container>
+      <Stack sx={{ padding: "3rem", alignItems: "center" }}>
         <Pagination
           page={pagination}
           onChange={paginationStatus}
