@@ -64,7 +64,15 @@ export const CharacterDetail = ({ open, onClose, character }) => {
               variant="h6"
               component="h2"
             >
-              {character.status}
+              Status: {character.status}
+            </Typography>
+            <Typography
+              sx={typographyStyle}
+              id="modal-modal-title"
+              variant="h6"
+              component="h2"
+            >
+              Specie: {character.species}
             </Typography>
           </Box>
         </Stack>

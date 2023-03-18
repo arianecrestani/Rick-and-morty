@@ -5,7 +5,6 @@ import { CharacterDetail } from "./CharacterDetail";
 import Searchbar from "./Searchbar";
 import { Container } from "@mui/system";
 import Paginate from "./Paginate";
-// import styled, { keyframes } from 'styled-components';
 
 export default function Cards() {
   const [characterData, setCharacterData] = useState([]);
@@ -39,7 +38,6 @@ export default function Cards() {
     getApiRickData(value);
   };
 
-
   useEffect(() => {
     getApiRickData();
   }, []);
@@ -57,14 +55,14 @@ export default function Cards() {
         character={openCart.character}
       />
       <Container spacing={2}>
-        <Grid container sx={{  gap: "3rem", justifyContent: "center" }}>
+        <Grid container sx={{ gap: "3rem", justifyContent: "center" }}>
           {characterData &&
             characterData.filter(filterSearch).map((item, index) => (
               <img
                 key={index}
                 style={{
-                  animationDuration: '4s',
-                  animationDirection: 'reverse',
+                  animationDuration: "4s",
+                  animationDirection: "reverse",
                   border: "5px solid",
                   color: "#FFEBCD",
                 }}
@@ -79,6 +77,9 @@ export default function Cards() {
         page={pagination}
         count={countPage}
       />
+      <div className="footer">
+        <h1>&copy; {new Date().getFullYear()} Ariane Crestani</h1>
+      </div>
     </>
   );
 }
