@@ -12,10 +12,16 @@ export const CharacterDetail = ({ open, onClose, character }) => {
     transform: "translate(-50%, -50%)",
     width: 400,
     bgcolor: "background.paper",
-    border: "5px solid #FFC0CB",
+    border: "5px solid #FFEBCD",
     boxShadow: 24,
     p: 4,
   };
+
+  if (character.status === "Dead") {
+    style.bgcolor = "black";
+    style.color = "white";
+  }
+
   const typographyStyle = {
     display: "flex",
     justifyContent: "center",
@@ -46,15 +52,19 @@ export const CharacterDetail = ({ open, onClose, character }) => {
               variant="h6"
               component="h2"
             >
-              <img src={character.image} />
+              <img
+                style={{ border: "5px solid", color: "#FFEBCD" }}
+                src={character.image}
+              />
             </Typography>
+
             <Typography
               sx={typographyStyle}
               id="modal-modal-title"
               variant="h6"
               component="h2"
             >
-              <div>{character.status}</div>
+              {character.status}
             </Typography>
           </Box>
         </Stack>

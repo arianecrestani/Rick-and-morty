@@ -5,16 +5,17 @@ import { CharacterDetail } from "./CharacterDetail";
 import Searchbar from "./Searchbar";
 import { Container } from "@mui/system";
 import Paginate from "./Paginate";
+// import styled, { keyframes } from 'styled-components';
 
 export default function Cards() {
   const [characterData, setCharacterData] = useState([]);
   const [openCart, setOpenCart] = useState({ open: false, character: {} });
   const [searchValue, setSearchValue] = useState("");
   const [pagination, setPagination] = useState(1);
+  const [countPage, setCountPage] = useState(0);
 
   const onSearchChange = (event) => {
     setSearchValue(event.target.value);
-    
   };
 
   const handleOpen = (item) => {
@@ -28,6 +29,7 @@ export default function Cards() {
       `https://rickandmortyapi.com/api/character/?page=${page}`
     );
     const data = await response.json();
+    setCountPage(data.info.pages);
     setCharacterData(data.results);
     console.log(data.results);
   };
@@ -36,6 +38,7 @@ export default function Cards() {
     setPagination(value);
     getApiRickData(value);
   };
+
 
   useEffect(() => {
     getApiRickData();
@@ -54,16 +57,28 @@ export default function Cards() {
         character={openCart.character}
       />
       <Container spacing={2}>
-        <Grid container sx={{ gap: "3rem", justifyContent: "center" }}>
+        <Grid container sx={{  gap: "3rem", justifyContent: "center" }}>
           {characterData &&
             characterData.filter(filterSearch).map((item, index) => (
-              <Grid sx={{ border: "5px solid", color: "#FFC0CB" }} key={index}>
-                <img src={item.image} onClick={() => handleOpen(item)} />
-              </Grid>
+              <img
+                key={index}
+                style={{
+                  animationDuration: '4s',
+                  animationDirection: 'reverse',
+                  border: "5px solid",
+                  color: "#FFEBCD",
+                }}
+                src={item.image}
+                onClick={() => handleOpen(item)}
+              />
             ))}
         </Grid>
       </Container>
-      <Paginate onChange={paginationStatus} page={pagination} count={3} />
+      <Paginate
+        onChange={paginationStatus}
+        page={pagination}
+        count={countPage}
+      />
     </>
   );
 }

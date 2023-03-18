@@ -10,7 +10,7 @@ const Searchbar = ({ onChange }) => {
         display: "flex",
         justifyContent: "center",
         margin: "3rem",
-        borderColor: "#FFC0CB",
+        borderColor: "#FFEBCD",
         borderRadius: "10px",
       }}
     >
@@ -18,7 +18,7 @@ const Searchbar = ({ onChange }) => {
         sx={{
           width: 500,
           maxWidth: "100%",
-          borderColor: "FFC0CB",
+          borderColor: "#FFEBCD",
           background: "#F8F8FF",
         }}
       >
