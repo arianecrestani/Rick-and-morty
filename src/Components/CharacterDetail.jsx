@@ -16,6 +16,11 @@ export const CharacterDetail = ({ open, onClose, character }) => {
     boxShadow: 24,
     p: 4,
   };
+  const typographyStyle = {
+    display: "flex",
+    justifyContent: "center",
+    padding: "10px",
+  };
 
   return (
     <>
@@ -28,7 +33,7 @@ export const CharacterDetail = ({ open, onClose, character }) => {
         <Stack>
           <Box sx={style}>
             <Typography
-              sx={{ display: "flex", justifyContent: "center", padding:'10px' }}
+              sx={typographyStyle}
               id="modal-modal-title"
               variant="h6"
               component="h2"
@@ -36,7 +41,7 @@ export const CharacterDetail = ({ open, onClose, character }) => {
               <div>{character.name}</div>
             </Typography>
             <Typography
-              sx={{ display: "flex", justifyContent: "center", padding:'10px'  }}
+              sx={typographyStyle}
               id="modal-modal-title"
               variant="h6"
               component="h2"
@@ -44,7 +49,7 @@ export const CharacterDetail = ({ open, onClose, character }) => {
               <img src={character.image} />
             </Typography>
             <Typography
-              sx={{ display: "flex", justifyContent: "center", padding:'10px'  }}
+              sx={typographyStyle}
               id="modal-modal-title"
               variant="h6"
               component="h2"

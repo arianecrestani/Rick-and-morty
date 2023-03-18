@@ -14,7 +14,6 @@ export default function Cards() {
 
   const onSearchChange = (event) => {
     setSearchValue(event.target.value);
-    // getApiRickData(value);
     
   };
 
