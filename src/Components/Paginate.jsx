@@ -6,7 +6,7 @@ function Paginate({ page, onChange, count }) {
   return (
     <div>
       <Stack sx={{ padding: "3rem", alignItems: "center" }}>
-        <Pagination count={count} page={page} onChange={onChange} color="primary" />
+        <Pagination count={count} page={page} onChange={onChange} color="secondary" />
       </Stack>
     </div>
   );

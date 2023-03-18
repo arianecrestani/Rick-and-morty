@@ -10,7 +10,7 @@ const Searchbar = ({ onChange }) => {
         display: "flex",
         justifyContent: "center",
         margin: "3rem",
-        borderColor: "#651fff",
+        borderColor: "#FFC0CB",
         borderRadius: "10px",
       }}
     >
@@ -18,13 +18,12 @@ const Searchbar = ({ onChange }) => {
         sx={{
           width: 500,
           maxWidth: "100%",
-          color: "#651fff",
-          borderColor: "#651fff",
+          borderColor: "FFC0CB",
           background: "#F8F8FF",
         }}
       >
         <TextField
-          style={{ color: "#651fff" }}
+          sx={{ color: "#FFC0CB" }}
           fullWidth
           label="FilterSearch"
           id="Filter"

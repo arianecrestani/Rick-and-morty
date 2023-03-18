@@ -4,7 +4,7 @@ import Grid from "@mui/material/Grid";
 import { CharacterDetail } from "./CharacterDetail";
 import Searchbar from "./Searchbar";
 import { Container } from "@mui/system";
-import Paginate from './Paginate'
+import Paginate from "./Paginate";
 
 export default function Cards() {
   const [characterData, setCharacterData] = useState([]);
@@ -14,6 +14,8 @@ export default function Cards() {
 
   const onSearchChange = (event) => {
     setSearchValue(event.target.value);
+    // getApiRickData(value);
+    
   };
 
   const handleOpen = (item) => {
@@ -40,8 +42,8 @@ export default function Cards() {
     getApiRickData();
   }, []);
 
-  const filterSearch = (item) => {
-    return item.name.toLowerCase().includes(searchValue.toLocaleLowerCase());
+  const filterSearch = (page) => {
+    return page.name.toLowerCase().includes(searchValue.toLocaleLowerCase());
   };
 
   return (
@@ -56,7 +58,7 @@ export default function Cards() {
         <Grid container sx={{ gap: "3rem", justifyContent: "center" }}>
           {characterData &&
             characterData.filter(filterSearch).map((item, index) => (
-              <Grid key={index}>
+              <Grid sx={{ border: "5px solid", color: "#FFC0CB" }} key={index}>
                 <img src={item.image} onClick={() => handleOpen(item)} />
               </Grid>
             ))}
