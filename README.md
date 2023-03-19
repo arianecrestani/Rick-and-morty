@@ -1,14 +1,14 @@
-## Ricky and Morty
+# Ricky and Morty
 
 It is one of the project requirements from Botcamp Code Academy Berlin.
 
-# Built with
+### Built with
 Api (Rick and Morty)
 javaScript, React app
 Material UI
 
 
-# About:
+### About:
 
 - Cards of Characteres 
 - Pagination
