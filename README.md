@@ -4,7 +4,7 @@ It is one of the project requirements from Botcamp Code Academy Berlin.
 
 ### Built with
 Api (Rick and Morty)
-javaScript, React app
+javaScript, React app,
 Material UI
 
 
