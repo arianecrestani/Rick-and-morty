@@ -15,5 +15,6 @@ Material UI
 - SearchBar 
 
 
-link here
+Link here
+
 https://rick-morty-ari.netlify.app
