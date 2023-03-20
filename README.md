@@ -1,4 +1,4 @@
-# Ricky and Morty
+# Ricky Morty
 
 It is one of the project requirements from Botcamp Code Academy Berlin.
 
